@@ -1,0 +1,44 @@
+.marquee{
+    overflow: hidden;
+    padding: 5px 0;
+    background: #fff;
+    white-space: nowrap;
+}
+
+.marquee:hover .marquee-slide{
+    animation-play-state: paused;
+}
+  
+.marquee-slide {
+    display: inline-block;
+}
+
+.marquee-slide span{
+    font-size: 15px;
+}
+
+.marquee-slide-top{
+    animation: 35s slide infinite linear;
+}
+
+.marquee-slide-bottom{
+    animation: 35s slide-right infinite linear;
+}
+
+@keyframes slide {
+    from{
+        transform: translateX(-100%);
+    }
+    to{
+        transform: translateX(0);
+    }
+}
+
+@keyframes slide-right {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-100%);
+    }
+}
