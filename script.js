@@ -1,15 +1,30 @@
+// Initializing with them with default values just in case
 let word = "EPIPHANY";
+let hint = "HINT: A sudden realization or understanding.";
+
+function checkEnter(event) {
+  if (event.key === "Enter") {
+      compareWord();
+  }
+}
 
 function compareWord(){
     if(document.getElementById('checkButton')){
         enteredWord = document.getElementById('text').value;
         if(enteredWord.toUpperCase().trim() === word){
-            alert("Matched");
+          animation.innerHTML = '<img src="tick.gif" alt="Tick Animation">';
+          document.getElementById("text").value = "";
+          windowsOnLoad();
         }
         else{
-            alert("Not Matched");
+          animation.innerHTML = '<img src="cross.gif" alt="Cross Animation">';
         }
     }
+
+    setTimeout(() => {
+      animation.innerHTML = '';
+      document.getElementById("text").value = "";
+  }, 1800);
 }
 
 function generateUnjumbledWord(word){
@@ -37,7 +52,7 @@ fetch('https://unjumble-api.onrender.com/')
   .then(data => {
     // Access the 'word' and 'hint' fields from the JSON response
     word = data.word.toUpperCase();
-    const hint = data.hint;    
+    hint = data.hint;    
 
     document.getElementById('word').textContent = generateUnjumbledWord(word).toUpperCase();
     document.getElementById('hint').textContent = "HINT: " + hint;
@@ -48,4 +63,14 @@ fetch('https://unjumble-api.onrender.com/')
   });
 }
 
-window.onload = windowsOnLoad();
+window.addEventListener("load", () => {
+  windowsOnLoad();
+
+  // Delay for 4 seconds (4000 milliseconds)
+  setTimeout(() => {
+    document.querySelector(".loader").classList.add("loader--hidden");
+    document.querySelector(".loader").addEventListener("transitionend", () => {
+      document.body.removeChild(document.querySelector(".loader"));
+    });
+  }, 2400);
+});
