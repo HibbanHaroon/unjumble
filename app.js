@@ -21,11 +21,11 @@ Can you generate me a word and hint for that word?`;
 
 function generateJSON(message){
     message.trim();
-    var name = message.substring(0, message.indexOf("\n"))
+    var word = message.substring(0, message.indexOf("\n"))
     var hint = message.substring(message.indexOf("\n") + 1)
     
     const jsonObject = {
-        "name": name,
+        "word": word,
         "hint": hint
     };
 
