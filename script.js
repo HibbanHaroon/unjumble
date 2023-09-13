@@ -12,12 +12,12 @@ function compareWord(){
     if(document.getElementById('checkButton')){
         enteredWord = document.getElementById('text').value;
         if(enteredWord.toUpperCase().trim() === word){
-          animation.innerHTML = '<img src="tick.gif" alt="Tick Animation">';
+          animation.innerHTML = '<img src="assets/tick.gif" alt="Tick Animation">';
           document.getElementById("text").value = "";
           windowsOnLoad();
         }
         else{
-          animation.innerHTML = '<img src="cross.gif" alt="Cross Animation">';
+          animation.innerHTML = '<img src="assets/cross.gif" alt="Cross Animation">';
         }
     }
 
