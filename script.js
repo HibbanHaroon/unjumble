@@ -12,6 +12,17 @@ function compareWord(){
     }
 }
 
+function generateUnjumbledWord(word){
+  let jumbledWord = word;
+  for(var i = 0; i < jumbledWord.length; i++){
+      let randomIndex = Math.floor(Math.random() * 5);
+      let temp = jumbledWord[i];
+      jumbledWord = jumbledWord.substring(0, i) + jumbledWord.substring(randomIndex, randomIndex + 1) + jumbledWord.substring(i + 1)
+      jumbledWord = jumbledWord.substring(0, randomIndex) + temp + jumbledWord.substring(randomIndex + 1)
+  }
+  return jumbledWord;
+}
+
 function windowsOnLoad(){
 // Make a GET request to the API endpoint
 fetch('https://unjumble-api.onrender.com/')
@@ -24,16 +35,11 @@ fetch('https://unjumble-api.onrender.com/')
     return response.json();
   })
   .then(data => {
-    // Access the 'name' and 'hint' fields from the JSON response
-    word = data.name.toUpperCase();
-    const hint = data.hint;
+    // Access the 'word' and 'hint' fields from the JSON response
+    word = data.word.toUpperCase();
+    const hint = data.hint;    
 
-    // Use the 'name' and 'hint' values in your JavaScript code
-    console.log('Word:', word);
-    console.log('Hint:', hint);
-    
-
-    document.getElementById('word').textContent = word;
+    document.getElementById('word').textContent = generateUnjumbledWord(word).toUpperCase();
     document.getElementById('hint').textContent = "HINT: " + hint;
 
   })
