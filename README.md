@@ -19,13 +19,6 @@ https://unjumble.onrender.com/
 
 Enjoy! 😊
 
-### Issues
-
- - Not enough error handling, sometimes incorrect word or no word at all may display on the screen due to incorrect response comming from GPT.
- - I think I need to try another approach: Instead of asking the word and the hint both from GPT. I should get the word from another project Wordinator I worked on which generates a random word, and then send this word to GPT to generate the hint for this word, and then display the word and the hint on the screen. By doing approach I can have flexibility on choosing the word i.e., it can be a curse word, a simple word with 3 to 4 letters or a longer word with 14 letters. 
-
-I'll try to work on this issues soon. :)
-
 ### Acknowledgements
 
  - [Animated Icons](https://icons8.com/icons)
