@@ -3,7 +3,7 @@ Unjumble is a word puzzle game that challenges you to unscramble words with hint
 
 In this branch, I created and deployed an API to generate a wordgiven a wordLength, noOfWords, and isSwears using node.js, express. The words and swears are both in json files. Each time you hit the endpoint, word(s) are retrieved. 
 
-I took major help to develop this API from my own project (Wordinator)[https://github.com/HibbanHaroon/wordinator.github.io] that I built.
+I took major help to develop this API from my own project [Wordinator](https://github.com/HibbanHaroon/wordinator.github.io) that I built.
 
 ## API Reference
 
